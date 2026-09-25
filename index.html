@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Gokul — Java Full Stack Developer portfolio. Projects, skills, experience, education and contact.">
+  <title>Gokul — Java Full Stack Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="Gokul home">
+      <span class="brand-mark">G</span>
+      <span>Gokul<span class="brand-dot">.P</span></span>
+    </a>
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <a class="nav-link active" href="#home">Home</a>
+      <a class="nav-link" href="#about">About</a>
+      <a class="nav-link" href="#skills">Skills</a>
+      <a class="nav-link" href="#projects">Projects</a>
+      <a class="nav-link" href="#journey">Journey</a>
+      <a class="nav-link" href="#contact">Contact</a>
+    </nav>
+    <div class="top-actions">
+      <button id="themeToggle" class="icon-btn" aria-label="Toggle theme" title="Toggle theme">☼</button>
+      <a class="resume-btn" href="assets/Gokul_Resume.pdf" download>Resume <span>↗</span></a>
+      <button id="menuToggle" class="icon-btn mobile-only" aria-label="Open menu" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <div id="mobileMenu" class="mobile-menu" hidden>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#journey">Journey</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <main>
+    <section id="home" class="hero section-shell">
+      <div class="hero-copy reveal">
+        <div class="availability"><span class="status-dot"></span> Open to fresher opportunities</div>
+        <p class="eyebrow">JAVA FULL STACK DEVELOPER</p>
+        <h1>Building practical software<br><span>with Java at the core.</span></h1>
+        <p class="hero-text">Computer Engineering graduate focused on Java, Spring Boot, REST APIs and MySQL — with a strong interest in building reliable, real-world applications.</p>
+        <div class="hero-actions">
+          <a class="primary-btn" href="#projects">View my work <span>↓</span></a>
+          <a class="secondary-btn" href="#contact">Let's connect <span>↗</span></a>
+        </div>
+        <div class="hero-meta">
+          <span>Based in India</span><i></i><span>Java · Spring Boot · SQL</span>
+        </div>
+      </div>
+      <div class="hero-visual reveal delay-1" aria-label="Developer profile card">
+        <div class="orbit orbit-1"></div>
+        <div class="orbit orbit-2"></div>
+        <div class="code-card">
+          <div class="window-bar"><span></span><span></span><span></span><code>portfolio.java</code></div>
+          <pre><span class="muted">01</span> <span class="kw">public class</span> <span class="type">Developer</span> {
+<span class="muted">02</span>     <span class="type">String</span> focus = <span class="str">"Java Full Stack"</span>;
+<span class="muted">03</span>     <span class="type">String</span> backend = <span class="str">"Spring Boot"</span>;
+<span class="muted">04</span>     <span class="type">String</span> database = <span class="str">"MySQL"</span>;
+<span class="muted">05</span>
+<span class="muted">06</span>     <span class="kw">boolean</span> keepsLearning() {
+<span class="muted">07</span>         <span class="kw">return</span> <span class="bool">true</span>;
+<span class="muted">08</span>     }
+<span class="muted">09</span> }</pre>
+        </div>
+        <div class="mini-card mini-card-a"><span class="mini-icon">⌘</span><div><strong>Clean APIs</strong><small>REST + JSON</small></div></div>
+        <div class="mini-card mini-card-b"><span class="mini-icon">◈</span><div><strong>Data</strong><small>SQL + JPA</small></div></div>
+      </div>
+    </section>
+
+    <section class="ticker" aria-label="Technology marquee">
+      <div class="ticker-track">
+        <span>JAVA</span><b>✦</b><span>SPRING BOOT</span><b>✦</b><span>REST API</span><b>✦</b><span>MYSQL</span><b>✦</b><span>JAVASCRIPT</span><b>✦</b><span>GIT & GITHUB</span><b>✦</b>
+        <span>JAVA</span><b>✦</b><span>SPRING BOOT</span><b>✦</b><span>REST API</span><b>✦</b><span>MYSQL</span><b>✦</b><span>JAVASCRIPT</span><b>✦</b><span>GIT & GITHUB</span><b>✦</b>
+      </div>
+    </section>
+
+    <section id="about" class="content-section section-shell">
+      <div class="section-head reveal"><p class="eyebrow">01 — ABOUT</p><h2>Less hype.<br><span>More building.</span></h2></div>
+      <div class="about-grid">
+        <div class="about-main reveal">
+          <p class="lead">I'm a Computer Engineering graduate building my foundation as a Java Full Stack Developer.</p>
+          <p>I enjoy turning a real problem into a clear system: a user-facing interface, a well-structured backend, and data that can be stored and retrieved safely. My current stack centers on Java, Spring Boot, REST APIs, SQL/MySQL, HTML, CSS and JavaScript.</p>
+          <p>I'm especially interested in backend development, API design and practical application architecture. My goal is to keep learning by shipping projects that are useful enough to explain in an interview and solid enough to put in production.</p>
+        </div>
+        <aside class="about-card reveal delay-1">
+          <div class="about-stat"><span>01</span><strong>Core Focus</strong><small>Java backend development</small></div>
+          <div class="about-stat"><span>02</span><strong>Currently Learning</strong><small>Advanced Java + Backend Development</small></div>
+          <div class="about-stat"><span>03</span><strong>Working Style</strong><small>Build → test → refine</small></div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="skills" class="content-section section-shell alt-section">
+      <div class="section-head reveal"><p class="eyebrow">02 — SKILLS</p><h2>Tools I use to<br><span>turn ideas into software.</span></h2></div>
+      <div class="skill-grid">
+        <article class="skill-card reveal"><span class="skill-no">01</span><h3>Backend</h3><p>Java · Spring Boot · REST API · Spring Data JPA</p><div class="skill-tags"><span>Java</span><span>Spring Boot</span><span>JPA</span><span>REST</span></div></article>
+        <article class="skill-card reveal delay-1"><span class="skill-no">02</span><h3>Database</h3><p>Relational data, queries and application-level persistence.</p><div class="skill-tags"><span>SQL</span><span>MySQL</span><span>Hibernate</span></div></article>
+        <article class="skill-card reveal delay-2"><span class="skill-no">03</span><h3>Frontend</h3><p>Responsive interfaces with a clean, accessible visual system.</p><div class="skill-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div></article>
+        <article class="skill-card reveal"><span class="skill-no">04</span><h3>Tools</h3><p>Version control and API testing for day-to-day development.</p><div class="skill-tags"><span>Git</span><span>GitHub</span><span>Postman</span></div></article>
+      </div>
+    </section>
+
+    <section id="projects" class="content-section section-shell">
+      <div class="section-head row-head reveal"><div><p class="eyebrow">03 — PROJECTS</p><h2>Selected work</h2></div><div class="project-filter" role="group" aria-label="Project filters"><button class="filter active" data-filter="all">All</button><button class="filter" data-filter="fullstack">Full Stack</button><button class="filter" data-filter="ai">AI / Security</button></div></div>
+      <div class="project-grid">
+        <article class="project-card featured reveal" data-category="ai">
+          <div class="project-top"><span class="project-type">FINAL YEAR PROJECT</span><span class="project-index">01</span></div>
+          <h3>Secure RAG-Based Technical Support System</h3>
+          <p>A security-focused technical support assistant combining retrieval-augmented generation, role-based access control and an AI firewall for safer query processing.</p>
+          <div class="project-stack"><span>RAG</span><span>FastAPI</span><span>JWT</span><span>Chroma</span><span>React</span><span>LLM</span></div>
+          <div class="project-bottom"><span>AI · Security · Support</span><a href="#contact" class="text-link">Discuss project ↗</a></div>
+        </article>
+        <article class="project-card reveal delay-1" data-category="fullstack">
+          <div class="project-top"><span class="project-type">PROJECT</span><span class="project-index">02</span></div>
+          <h3>Gym Operations & Member Administration System</h3>
+          <p>Developed a web-based application to manage gym members, memberships, trainers, and payment records efficiently.</p>
+          <div class="project-stack"><span>Java</span><span>Spring Boot</span><span>REST API</span><span>MySQL</span></div>
+          <div class="project-bottom"><span>Management System</span><a href="#contact" class="text-link">Discuss project ↗</a></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="journey" class="content-section section-shell alt-section">
+      <div class="section-head reveal"><p class="eyebrow">04 — JOURNEY</p><h2>What I'm building<br><span>toward next.</span></h2></div>
+      <div class="journey-grid">
+        <div class="timeline reveal">
+          <div class="timeline-item"><span class="timeline-dot"></span><div><small>NOW</small><h3>Java Full Stack Foundation</h3><p>Strengthening Java, Spring Boot, REST APIs, JPA and SQL through practical projects.</p></div></div>
+          <div class="timeline-item"><span class="timeline-dot"></span><div><small>NEXT</small><h3>Ship a Production-Style Full Stack Project</h3><p>Build, test, deploy and document one end-to-end application with a clear real-world use case.</p></div></div>
+          <div class="timeline-item"><span class="timeline-dot"></span><div><small>AFTER</small><h3>Backend-Focused Software Role</h3><p>Apply the fundamentals in a professional engineering environment and keep improving through real delivery work.</p></div></div>
+        </div>
+        <div class="quote-card reveal delay-1"><span class="quote-mark">“</span><p>“Build real projects. Understand the fundamentals. Explain every choice.”</p><small>— My Engineering principle</small></div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section section-shell">
+      <div class="contact-card reveal">
+        <p class="eyebrow">05 — CONTACT</p>
+        <h2>Have a role, project,<br><span>or a good problem?</span></h2>
+        <p class="contact-copy">I'm open to fresher software opportunities and conversations around Java, backend development and full-stack projects.</p>
+        <div class="contact-actions">
+          <a class="primary-btn" href="mailto:gokul.p.cseacet@gmail.com">Email me ↗</a>
+          <a class="secondary-btn" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+          <a class="secondary-btn" href="https://github.com/" target="_blank" rel="noreferrer">GitHub ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer section-shell"><span>© 2026 Gokul</span><span>Built with HTML · CSS · JavaScript</span><a href="#home">Back to top ↑</a></footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
