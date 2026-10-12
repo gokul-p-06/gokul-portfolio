@@ -110,7 +110,8 @@
   let animationId = 0;
   let lastFrame = 0;
   let pageVisible = !document.hidden;
-  let isSmall = window.innerWidth <= 650;
+  // Touch/small layouts use a static particle network to keep scrolling responsive.
+  let isSmall = window.innerWidth <= 820 || window.matchMedia('(pointer: coarse)').matches;
 
   const colors = () => root.classList.contains('light')
     ? { cyan: [25, 131, 164], violet: [103, 87, 191], gold: [174, 127, 59] }
@@ -119,7 +120,9 @@
 
   function createParticles() {
     const area = width * height;
-    const count = Math.max(isSmall ? 25 : 42, Math.min(isSmall ? 38 : 82, Math.round(area / (isSmall ? 25000 : 18500))));
+    const count = isSmall
+      ? Math.max(16, Math.min(24, Math.round(area / 32000)))
+      : Math.max(42, Math.min(72, Math.round(area / 22000)));
     particles = Array.from({ length: count }, (_, index) => ({
       x: Math.random() * width,
       y: Math.random() * height,
@@ -135,8 +138,9 @@
     if (!ctx) return;
     width = window.innerWidth;
     height = window.innerHeight;
-    isSmall = width <= 650;
-    dpr = Math.min(window.devicePixelRatio || 1, isSmall ? 1.35 : 1.7);
+    isSmall = width <= 820 || window.matchMedia('(pointer: coarse)').matches;
+    // Keep mobile canvas at native resolution; high-DPI full-screen canvases are expensive to repaint.
+    dpr = Math.min(window.devicePixelRatio || 1, isSmall ? 1 : 1.5);
     canvas.width = Math.round(width * dpr);
     canvas.height = Math.round(height * dpr);
     canvas.style.width = `${width}px`;
@@ -144,6 +148,9 @@
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     createParticles();
     drawStaticCanvas();
+    lastFrame = 0;
+    if (reducedMotion || isSmall) stopCanvas();
+    else startCanvas();
   }
 
   function drawStaticCanvas() {
@@ -245,7 +252,7 @@
     animationId = window.requestAnimationFrame(animate);
   }
   function startCanvas() {
-    if (reducedMotion || !pageVisible || animationId) return;
+    if (reducedMotion || isSmall || !pageVisible || animationId) return;
     animationId = window.requestAnimationFrame(animate);
   }
   function stopCanvas() {
@@ -254,14 +261,15 @@
   }
 
   resizeCanvas();
-  if (reducedMotion) canvas.style.display = 'none'; else startCanvas();
+  if (reducedMotion) canvas.style.display = 'none';
+  else if (!isSmall) startCanvas(); // Mobile keeps the network visual, but does not animate it continuously.
   window.addEventListener('resize', resizeCanvas, { passive: true });
   document.addEventListener('visibilitychange', () => {
     pageVisible = !document.hidden;
     if (pageVisible) startCanvas(); else stopCanvas();
   });
   window.addEventListener('pointermove', event => {
-    if (event.pointerType === 'touch') return;
+    if (isSmall || event.pointerType === 'touch') return;
     pointer.tx = event.clientX;
     pointer.ty = event.clientY;
     pointer.active = true;
@@ -281,6 +289,7 @@
   const progressFill = progress.firstElementChild;
   const topbar = document.querySelector('.topbar');
   let scrollQueued = false;
+  let scrollEndTimer = 0;
   function updateScrollEffects() {
     const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
     const ratio = maxScroll > 0 ? window.scrollY / maxScroll : 0;
@@ -289,6 +298,12 @@
     scrollQueued = false;
   }
   window.addEventListener('scroll', () => {
+    // Pause decorative loops during touch scrolling, then resume when the gesture settles.
+    if (isSmall) {
+      root.classList.add('is-scrolling');
+      window.clearTimeout(scrollEndTimer);
+      scrollEndTimer = window.setTimeout(() => root.classList.remove('is-scrolling'), 180);
+    }
     if (scrollQueued) return;
     scrollQueued = true;
     window.requestAnimationFrame(updateScrollEffects);
@@ -296,7 +311,7 @@
   updateScrollEffects();
 
   // Pointer-responsive card highlights and a restrained desktop-only tilt.
-  if (finePointer && !reducedMotion) {
+  if (finePointer && !isSmall && !reducedMotion) {
     document.querySelectorAll('.project-card, .skill-card, .about-card, .quote-card').forEach(card => {
       let queued = false;
       let x = 0;
